@@ -67,6 +67,19 @@
   footer a{color:var(--accent)}
   .pill{display:inline-block;font-size:.78rem;color:var(--muted);border:1px solid var(--line);
     border-radius:999px;padding:2px 10px;margin-right:6px}
+  .sample{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin:16px 0;overflow:hidden}
+  .sample .bar{padding:9px 14px;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.04em}
+  .sample .body{padding:6px 18px 16px}
+  .sample .body h4{margin:16px 0 2px;font-size:1rem}
+  .sample .body p{margin:.15em 0;font-size:.94rem}
+  .sample .score{color:var(--accent);font-weight:700}
+  .sample .lead-line{font-weight:600;margin-top:12px}
+  .sample .gap{color:var(--muted)}
+  .sample .foot{color:var(--muted);font-size:.9rem;margin-top:14px}
+  .maptable{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+  .maptable th,.maptable td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  .maptable th{color:var(--accent);font-weight:600}
 </style>
 </head>
 <body>
@@ -82,6 +95,7 @@
   <a href="#prep">6. Honest read</a>
   <a href="#teach">7. Teach it</a>
   <a href="#templates">Templates</a>
+  <a href="#why">Why</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -236,15 +250,34 @@ If nothing clears the bar, tell me plainly and name what you checked. Don't pad.
     <div class="note"><strong>Make sure it actually remembers.</strong> This only works if the agent can read your files and write back to your seen list between runs. On day one, confirm the loop closed: ask "how many roles are on my seen list now?" and watch that number grow each morning. If your tool has no durable memory, keep the seen list in a file the agent reads and rewrites every run, and paste it in if you have to. An agent that forgets overnight will show you the same roles forever.</div>
 
     <h3>What you get, and how it grows</h3>
-    <p>Each morning you read a short digest of fits instead of scrolling hundreds of postings. You apply to the ones worth it. The system does not do the thinking for you: it finds and structures, you keep the judgment and the voice.</p>
+    <p>Each morning you read a short digest of fits instead of scrolling hundreds of postings. You apply to the ones worth it. The system does not do the thinking for you: it finds and structures, you keep the judgment and the voice. Here is what one morning looks like:</p>
+    <div class="sample">
+      <div class="bar">Example · a morning digest</div>
+      <div class="body">
+        <p class="lead-line">Daily sweep, Tuesday. 3 fits cleared the bar out of 41 scanned. 6 added to your seen list.</p>
+        <h4>1. Forward Deployed Engineer, Example Corp <span class="gap">(remote, US)</span> &middot; <span class="score">Fit 5/5</span></h4>
+        <p>Why it fits: customer-facing build role. They want someone who ships prototypes with enterprise clients and owns the technical relationship, which is your through-line.</p>
+        <p class="gap">Biggest gap: they name Kubernetes twice. You have shipped on it, but it is not your center of gravity.</p>
+        <p>Apply: <span class="gap">the exact live link</span></p>
+        <h4>2. Solutions Engineer, Northwind AI <span class="gap">(hybrid, Austin, 2 days on-site)</span> &middot; <span class="score">Fit 4/5</span></h4>
+        <p>Why it fits: pre-sales plus post-sales build, AI-native product, comp band clears your floor.</p>
+        <p class="gap">Biggest gap: heavier demo load than you said you want. Worth one question about the build-to-sell split.</p>
+        <p>Apply: <span class="gap">the exact live link</span></p>
+        <h4>3. Applied AI Engineer, Contoso <span class="gap">(remote, US)</span> &middot; <span class="score">Fit 3/5</span></h4>
+        <p>Why it fits: hands-on agent work, strong mission match.</p>
+        <p class="gap">Biggest gap: level reads one notch junior and the posting is vague on scope. Confirm before you invest.</p>
+        <p>Apply: <span class="gap">the exact live link</span></p>
+        <p class="foot">Nothing else cleared your floor. I checked LinkedIn, three ATS boards, and two company pages; the rest failed on comp or location, or were reposts already on your seen list.</p>
+      </div>
+    </div>
     <p>Here is the part I did not expect. The more you run it, the sharper your version of good gets, and sometimes it splits. Mine got sharp enough that it branched into two searches: one for hands-on builder and forward-deployed roles, one for enablement. Same person, two shapes of good. When that happens, you just give the second search its own spec and let both run. That sharpening is not luck; <a href="#teach">step 7</a> is how you make it deliberate.</p>
   </div>
 
   <!-- STEP 5 -->
   <div class="step" id="tailor">
     <span class="step-num">Step 5</span>
-    <h2>Tailor without losing your voice</h2>
-    <p>When a role is worth it, point the AI at your blueprint and the specific posting and ask it to pull only the proof that matches, written in your voice. Then run the draft through a self-check, because the fastest way to get screened out is to sound like a machine.</p>
+    <h2>Write a one-size-fits-one resume</h2>
+    <p>When a role is worth it, do not edit a master resume down to fit. Generate a new one, queried fresh from your blueprint for this exact posting. That is what one-size-fits-one means: a bespoke resume per role that carries only the proof that matches, written in your voice. This is the reframe from step 3 in action, your resume is a query and the blueprint is the source of truth it pulls from. Then run the draft through a self-check, because the fastest way to get screened out is to sound like a machine.</p>
     <div class="prompt">
       <div class="bar"><span>Prompt · tailor from the blueprint</span><button class="copy">Copy</button></div>
 <pre>Here is my career blueprint and a job posting. Draft a resume and a short cover letter for this specific role. Pull only the experience and the numbers from my blueprint that actually match what they're asking for. Write in my voice, keep every claim honest and backed by something real, and lead with my through-line. Then tell me which of my stories you left out and why.</pre>
@@ -263,6 +296,19 @@ If nothing clears the bar, tell me plainly and name what you checked. Don't pad.
     <div class="prompt">
       <div class="bar"><span>Prompt</span><button class="copy">Copy</button></div>
 <pre>Based on my grounding document and this job posting, give me the honest read on my fit: where I'm strong, where the real gaps are, and how I'd bridge each gap truthfully. Then help me prep: the three stories most worth telling for this role, the smart questions to ask them, and how to handle the compensation conversation without under-anchoring.</pre>
+    </div>
+    <h3>Assemble the application pack</h3>
+    <p>Now collect the dots into one place. For each role you decide to pursue, have the AI build a single application pack: the resume and cover letter, plus a requirement-to-proof map that lines up what they asked for against what you have actually done. That map is the dot-connecting. It makes sure nothing strong gets left off the page, and it walks you into the interview already knowing which of your dots connect to which of theirs.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt · build the application pack</span><button class="copy">Copy</button></div>
+<pre>For this role I'm pursuing, assemble one application pack I can work from. Using my career blueprint, my grounding document, and the posting, put all of this in a single document:
+
+1. The tailored resume and a short cover letter: one size fits one, queried fresh from my blueprint, in my voice, leading with my through-line.
+2. A requirement-to-proof map: each thing they ask for in one column, my strongest real evidence for it in the next, and a flag on anything I can't back with a number or example yet.
+3. The honest read: where I'm strong, where the real gaps are, and how I'd bridge each one truthfully.
+4. The three stories most worth telling for this role, the smart questions to ask them, and my comp anchor so I don't under-anchor.
+
+Keep every claim backed by something real, and tell me what's missing so I can fill it before I apply.</pre>
     </div>
     <p class="muted">One more step, and it is the one that makes the system yours.</p>
   </div>
@@ -293,13 +339,21 @@ Show me the edits before you apply them, and keep every change traceable to some
     <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/career-blueprint.md">Career blueprint</a>.</b> Your private source of truth. Long is good. You mine it, you never send it.</div>
     <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/search-spec.md">Search spec</a>.</b> The shape of role you are hunting, with the anchored 1 to 5 fit rubric ready to adjust to you.</div>
     <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/seen-list.csv">Seen list</a>.</b> A running log with a stable-key column, so the daily search never repeats itself.</div>
+    <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/application-pack.md">Application pack</a>.</b> The per-role bundle: resume, cover letter, and a requirement-to-proof map that connects your dots to theirs.</div>
   </div>
+
+  <h2 id="why">Why I made this</h2>
+  <p>People keep asking for the exact example. Not "AI is useful," but show me how you actually used it to solve a real problem. This is mine.</p>
+  <p>I'm an AI builder, and I grew up in talent acquisition and HR technology, helping employers identify and reverse-engineer their hiring so they could find their next right hire. This is that same system, handed to the person on the other side of the table. The candidate deserves to reverse-engineer their search too.</p>
+  <p>The job search can be one of the most defeating things you go through. AI does not fix that by writing you a slicker resume. It helps you get clear on your next right thing, and then it helps you go find it.</p>
+  <p>One thing I keep learning: good is personal. What is good for me is not good for you, and you often do not sharpen your version of good until you stumble into something bad. So do not expect to name it perfectly on day one. Name it as well as you can, then keep sharpening it every time the search shows you something a little more yes, or a little more no.</p>
+  <p>My goal is simple: teach one person to fish with AI. If this helped you, pass it to someone who is searching.</p>
 
 </main>
 
 <footer><div class="wrap">
   <p><span class="pill">Built in public</span><span class="pill">Adapt it freely</span></p>
-  <p>Made by Jenny Cotie Kangas, an applied AI builder. If this helps you, pass it to someone who is searching. Teach one person to fish today.</p>
+  <p>Made by Jenny Cotie Kangas, an applied AI builder.</p>
   <p class="muted">More of my work: <a href="https://jennycotiekangas.github.io">portfolio</a> &nbsp;·&nbsp; <a href="https://github.com/jennycotiekangas/reqcheck">reqcheck</a>, an audit engine for public job postings.</p>
   <p><a href="https://linkedin.com/in/jcotie">LinkedIn</a> &nbsp;·&nbsp; <a href="https://whiterockroad.org">whiterockroad.org</a> &nbsp;·&nbsp; <a href="https://github.com/jennycotiekangas">GitHub</a></p>
 </div></footer>

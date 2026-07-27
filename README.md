@@ -6,7 +6,7 @@ Made by Jenny Cotie Kangas (applied AI builder). Free to adapt.
 
 ## What's here
 - `index.html` — the entire site. Self-contained: inline CSS and a few lines of JS for the copy buttons. No build step, no dependencies.
-- `templates/` — fill-in skeletons for the four files the playbook builds: `grounding-document.md`, `career-blueprint.md`, `search-spec.md`, and `seen-list.csv`. The search spec and seen list use the exact field labels the daily search agent reads, so keep those intact.
+- `templates/` — fill-in skeletons for the files the playbook builds: `grounding-document.md`, `career-blueprint.md`, `search-spec.md`, `seen-list.csv`, and `application-pack.md` (the per-role bundle). The search spec and seen list use the exact field labels the daily search agent reads, so keep those intact.
 
 ## Fastest way to use it
 Paste the starter prompt near the top of the page into an AI that can read a web page (dial the model and thinking level up first, the work is reasoning-heavy). It reads the playbook, interviews you, and hands back each file ready to save. If your AI cannot open links, start from the templates instead.
