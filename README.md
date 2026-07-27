@@ -6,6 +6,10 @@ Made by Jenny Cotie Kangas (applied AI builder). Free to adapt.
 
 ## What's here
 - `index.html` — the entire site. Self-contained: inline CSS and a few lines of JS for the copy buttons. No build step, no dependencies.
+- `templates/` — fill-in skeletons for the four files the playbook builds: `grounding-document.md`, `career-blueprint.md`, `search-spec.md`, and `seen-list.csv`. The search spec and seen list use the exact field labels the daily search agent reads, so keep those intact.
+
+## Fastest way to use it
+Paste the starter prompt near the top of the page into an AI that can read a web page (dial the model and thinking level up first, the work is reasoning-heavy). It reads the playbook, interviews you, and hands back each file ready to save. If your AI cannot open links, start from the templates instead.
 
 ## Publish it on GitHub Pages
 1. Create a new repo, e.g. `ai-job-search`.
@@ -16,7 +20,7 @@ Made by Jenny Cotie Kangas (applied AI builder). Free to adapt.
 To serve it at the domain root instead, put `index.html` in a repo named `<your-username>.github.io`.
 
 ## Editing
-Everything is in `index.html`. The prompts live inside `<pre>` blocks; edit them there and the copy buttons pick up the new text automatically. Section anchors (`#good`, `#grounding`, `#blueprint`, `#automation`, `#tailor`, `#prep`) drive the top nav.
+Everything is in `index.html`. The prompts live inside `<pre>` blocks; edit them there and the copy buttons pick up the new text automatically. Section anchors (`#quickstart`, `#good`, `#grounding`, `#blueprint`, `#automation`, `#tailor`, `#prep`, `#teach`, `#templates`) drive the top nav.
 
 ## House style (keep the voice consistent)
 - No em dashes. Use periods, commas, colons, or parentheses. En dashes only in number and date ranges.

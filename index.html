@@ -73,12 +73,15 @@
 
 <nav class="toc"><div class="wrap">
   <a href="#start">Start here</a>
+  <a href="#quickstart">Quick start</a>
   <a href="#good">1. Version of good</a>
   <a href="#grounding">2. Grounding doc</a>
   <a href="#blueprint">3. Blueprint</a>
   <a href="#automation">4. Daily search</a>
   <a href="#tailor">5. Tailor</a>
   <a href="#prep">6. Honest read</a>
+  <a href="#teach">7. Teach it</a>
+  <a href="#templates">Templates</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -94,13 +97,27 @@
     <strong>Two rules before you start.</strong> Use an AI account that does not train on your data, and never paste anyone's confidential or personal information into it, including anything you are under NDA to protect. You can describe the shape of your work without the protected specifics. More on that in step 3.
   </div>
 
+  <h2 id="quickstart">The fastest start: hand this page to your AI</h2>
+  <p>You do not have to do this alone. Paste the starter prompt below into an AI that can read a web page, and it will walk you through the whole playbook, interview you for each file, and hand you clean documents to save. If your AI cannot open links, copy the steps into it as you go, or start from the <a href="#templates">fill-in templates</a> at the bottom.</p>
+  <p class="muted">Before you paste it, dial in the model and thinking level for the job. This work is reasoning-heavy: it interviews you, weighs fit, and gives honest reads, so choose a strong model and turn its extended thinking up. You can switch to a lighter, faster setting for the routine daily sweep once your files exist.</p>
+  <div class="prompt">
+    <div class="bar"><span>Prompt · your starter</span><button class="copy">Copy</button></div>
+<pre>You're my job-search partner. First, read this playbook: https://jennycotiekangas.github.io/ai-job-search/
+
+Then walk me through it one step at a time and build each file with me as we go, in this order: my version of good, my grounding document, my career blueprint, my search spec (including a 1 to 5 fit rubric), and my seen list.
+
+Interview me a few focused questions at a time. Do not overwhelm me, and do not move on from a section until it is actually true to me. Push gently where I am vague. Keep anything I mark confidential or under NDA out of every file: capture the shape of the work, never the protected specifics.
+
+As each file is finished, give it to me as clean, paste-ready text I can save, using the field labels from the playbook so a daily search agent can read it later. Start by reading the page, telling me the plan in a few lines, then begin step 1.</pre>
+  </div>
+
   <h2>How the system fits together</h2>
   <p>Four documents and one daily habit. You build the documents once with the AI's help, then a daily routine uses them to find roles that fit the real you. Here is the whole machine before we build each piece:</p>
   <div class="files">
-    <div class="file"><b>Your version of good.</b> What you actually want from the next role, in your own words.</div>
-    <div class="file"><b>Your grounding document.</b> The reusable summary of who you are, your constraints, and your version of good. You paste this into every conversation.</div>
+    <div class="file"><b>Your grounding document.</b> The reusable summary of who you are, your constraints, and your version of good. It opens with a short labeled header a search agent can read, then the full version in your voice. You paste this into every conversation.</div>
     <div class="file"><b>Your career blueprint.</b> The full, private record of everything you have done. Your resumes are pulled from it.</div>
-    <div class="file"><b>Your search spec and a seen list.</b> The shape of role you are hunting and a running list of what you have already looked at, so a daily search can find fits and never repeat itself.</div>
+    <div class="file"><b>Your search spec.</b> The shape of role you are hunting and an anchored 1 to 5 rubric for scoring fit, tight enough that an AI applies it the same way every day.</div>
+    <div class="file"><b>Your seen list.</b> A running log, keyed so it never repeats, of every role the daily search has already shown you.</div>
   </div>
 
   <!-- STEP 1 -->
@@ -146,8 +163,9 @@ When we are done, output a clean, paste-ready summary I can drop straight into m
 
 Interview me one question at a time to fill the gaps. Capture: the work I most want to be doing (the shape, not just a title); my version of good, what makes a role a yes and what makes it a no; my hard constraints (comp floor, location and travel, work authorization, the things I won't do); what I bring that's hard to hire; and my through-line, the one sentence that ties my work together. Keep asking until you stop learning something new.
 
-Then write the grounding document in plain language and in my voice, and tell me how to use it. Do not include anything I've said is confidential or under NDA; if something is protected, capture only the shape of it, never the protected specifics.</pre>
+Then write the grounding document in two layers. First a short quick-reference header with these exact labels, one per line, so any future AI or search agent can read it the same way every time: Through-line; Target titles; Must-haves; Dealbreakers; Comp floor; Location + travel; Work authorization; Work arrangement; Level. Below the header, write the full version in plain language and in my voice, and tell me how to use it. Do not include anything I've said is confidential or under NDA; if something is protected, capture only the shape of it, never the protected specifics.</pre>
     </div>
+    <div class="note"><strong>Why the header.</strong> The labeled header is for machines; the prose below is for humans. A daily agent keys off explicit fields far more reliably than off a paragraph, so giving it both is what makes another AI behave like a partner who already knows you.</div>
   </div>
 
   <!-- STEP 3 -->
@@ -181,13 +199,23 @@ Do not record anything confidential or under NDA. If something is protected, cap
 
     <h3>The two extra files you build first</h3>
     <div class="files">
-      <div class="file"><b>A search spec.</b> Ask the AI to write it from your grounding document: the titles your target role hides behind, the responsibilities that signal a real match, your must-haves, your dealbreakers, and a simple way to score a posting from 1 to 5.</div>
-      <div class="file"><b>A seen list.</b> A running list of every company and role you have already looked at. This is what lets the daily search skip old ground and only ever show you something new.</div>
+      <div class="file"><b>A search spec.</b> Ask the AI to write it from your grounding document: the titles your target role hides behind, the responsibilities that signal a real match, your must-haves, your dealbreakers, and an anchored 1 to 5 rubric for scoring fit, with each level spelled out so the score means the same thing every day.</div>
+      <div class="file"><b>A seen list.</b> A running log of every company and role you have already looked at, each stored under a stable key (company + normalized job title + location, or the posting's canonical URL). The key is what lets the daily search skip old ground reliably, even when a role gets reposted under a new link.</div>
     </div>
     <div class="prompt">
       <div class="bar"><span>Prompt · write your search spec</span><button class="copy">Copy</button></div>
-<pre>Using my grounding document, write a search spec I can hand to a daily search agent. Include: the shape of role I'm hunting, the titles it hides behind, the responsibilities that signal a real match, my must-haves, my hard dealbreakers (comp floor, location and travel, work authorization), and a 1 to 5 scale for scoring a posting against my fit. Keep it tight enough that another AI could apply it consistently.</pre>
+<pre>Using my grounding document, write a search spec I can hand to a daily search agent. Include: the shape of role I'm hunting, the titles it hides behind, the responsibilities that signal a real match, my must-haves, and my hard dealbreakers (comp floor, location and travel, work authorization).
+
+Then define a 1 to 5 fit rubric with every level spelled out, so another AI scores the same way every time. Use these anchors and adjust the wording to me:
+- 5: clears every must-have and shows at least two signals of strong fit.
+- 4: clears every must-have, no dealbreakers, a solid fit but not exceptional.
+- 3: clears the must-haves but has one real gap.
+- 2: borderline; a must-have is only partly met.
+- 1: trips a dealbreaker or misses a must-have.
+
+Keep the whole spec tight enough that another AI could apply it consistently.</pre>
     </div>
+    <div class="note"><strong>Why spell out the rubric.</strong> If you just say "score 1 to 5," the AI invents a new scale every run and the scores drift. Anchored levels, where a 5 means this and a 3 means that, make today's 4 mean the same as next week's 4, and make one person's setup behave like another's.</div>
 
     <h3>The engine: one scheduled task</h3>
     <p>Now you set up a task that runs every weekday morning and does the work you would do by hand, faster and without getting bored. Give it these instructions and point it at your own files.</p>
@@ -196,19 +224,20 @@ Do not record anything confidential or under NDA. If something is protected, cap
 <pre>Run my daily job-search sweep every weekday morning.
 
 1. Read my grounding document and my search spec. They define who I am, the shape of role I want, my hard constraints (comp floor, location, travel, work authorization), and my dealbreakers.
-2. Read my seen list. Every company and role on it is off-limits. Never surface something I've already been shown.
+2. Read my seen list and match against it by stable key (company + normalized title + location, or the canonical posting URL), so a reposted or slightly renamed role still counts as seen. Anything that matches is off-limits; never surface something I've already been shown.
 3. Search the web and job boards for roles that match the shape in my search spec. Rotate sources so you don't hit the same ones every day.
 4. For each promising role, open the real posting and verify it is live, that the location or remote policy fits my constraints, and that the pay (if listed) clears my floor. Do not trust aggregator tags; confirm on the source.
 5. Score each surviving role 1 to 5 against my search spec. Write one honest line on why it fits and one on the biggest gap or risk.
 6. Give me a short digest of the best matches, strongest first, with the exact application link for each.
-7. Add every new role you surface to my seen list with today's date, so it isn't repeated.
+7. Add every new role you surface to my seen list under its stable key with today's date, so it is never repeated.
 
 If nothing clears the bar, tell me plainly and name what you checked. Don't pad. I'll decide what to apply to; you find and structure, I keep the judgment.</pre>
     </div>
+    <div class="note"><strong>Make sure it actually remembers.</strong> This only works if the agent can read your files and write back to your seen list between runs. On day one, confirm the loop closed: ask "how many roles are on my seen list now?" and watch that number grow each morning. If your tool has no durable memory, keep the seen list in a file the agent reads and rewrites every run, and paste it in if you have to. An agent that forgets overnight will show you the same roles forever.</div>
 
     <h3>What you get, and how it grows</h3>
     <p>Each morning you read a short digest of fits instead of scrolling hundreds of postings. You apply to the ones worth it. The system does not do the thinking for you: it finds and structures, you keep the judgment and the voice.</p>
-    <p>Here is the part I did not expect. The more you run it, the sharper your version of good gets, and sometimes it splits. Mine got sharp enough that it branched into two searches: one for hands-on builder and forward-deployed roles, one for enablement. Same person, two shapes of good. When that happens, you just give the second search its own spec and let both run.</p>
+    <p>Here is the part I did not expect. The more you run it, the sharper your version of good gets, and sometimes it splits. Mine got sharp enough that it branched into two searches: one for hands-on builder and forward-deployed roles, one for enablement. Same person, two shapes of good. When that happens, you just give the second search its own spec and let both run. That sharpening is not luck; <a href="#teach">step 7</a> is how you make it deliberate.</p>
   </div>
 
   <!-- STEP 5 -->
@@ -235,7 +264,35 @@ If nothing clears the bar, tell me plainly and name what you checked. Don't pad.
       <div class="bar"><span>Prompt</span><button class="copy">Copy</button></div>
 <pre>Based on my grounding document and this job posting, give me the honest read on my fit: where I'm strong, where the real gaps are, and how I'd bridge each gap truthfully. Then help me prep: the three stories most worth telling for this role, the smart questions to ask them, and how to handle the compensation conversation without under-anchoring.</pre>
     </div>
-    <p class="muted">That is the whole system. Define your version of good, ground it, blueprint your career, let a daily search find the fits, tailor honestly, and go in prepared. Build it once, and it works for you every morning.</p>
+    <p class="muted">One more step, and it is the one that makes the system yours.</p>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step" id="teach">
+    <span class="step-num">Step 7</span>
+    <h2>Teach it as you go</h2>
+    <p>This is what turns a static filter into something that learns you. Once a week, tell the AI which roles it surfaced that you actually wanted, which you skipped, and why. Have it update your search spec and your version of good from those signals. The system gets sharper every week because you are training it on your real reactions, not your day-one guesses.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt · the weekly tune-up</span><button class="copy">Copy</button></div>
+<pre>Here are the roles you surfaced this week and what I did with each: [paste the digests, and for each one note applied / saved / skipped, plus one word on why].
+
+Read these as feedback on my real taste, not just this week's results. Then:
+1. Tell me the pattern: what the roles I wanted have in common, what the ones I skipped have in common, and anything my search spec is clearly missing.
+2. Propose specific edits to my search spec: titles to add or drop, must-haves or dealbreakers I obviously have but never wrote down, and any change to the fit rubric.
+3. Propose any update to my version of good if my reactions show it has shifted.
+
+Show me the edits before you apply them, and keep every change traceable to something I actually did.</pre>
+    </div>
+    <p class="muted">That is the whole system. Define your version of good, ground it, blueprint your career, let a daily search find the fits, tailor honestly, go in prepared, and teach it as you go. Build it once, keep it a little sharper each week, and it works for you every morning.</p>
+  </div>
+
+  <h2 id="templates">Grab the fill-in templates</h2>
+  <p>If you would rather start from a skeleton than a blank page, these are the same files this playbook builds, with the field labels already in place. Copy one, fill it in (with your AI or by hand), and keep it private. The search spec and seen list use the exact labels the daily agent reads, so keep those intact.</p>
+  <div class="files">
+    <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/grounding-document.md">Grounding document</a>.</b> The reusable summary you paste into every chat, with the quick-reference header on top and room for the full version in your voice.</div>
+    <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/career-blueprint.md">Career blueprint</a>.</b> Your private source of truth. Long is good. You mine it, you never send it.</div>
+    <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/search-spec.md">Search spec</a>.</b> The shape of role you are hunting, with the anchored 1 to 5 fit rubric ready to adjust to you.</div>
+    <div class="file"><b><a href="https://github.com/jennycotiekangas/ai-job-search/blob/main/templates/seen-list.csv">Seen list</a>.</b> A running log with a stable-key column, so the daily search never repeats itself.</div>
   </div>
 
 </main>
