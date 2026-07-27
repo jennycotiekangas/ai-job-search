@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use AI to Run Your Job Search: a builder's playbook</title>
+<meta name="description" content="A step-by-step system for running your job search with AI: define your version of good, build a grounding document and a career blueprint, and set up a daily search that finds roles by fit, not title.">
+<style>
+  :root{
+    --bg:#faf9f7; --fg:#1c1b19; --muted:#5f5b54; --line:#e5e1da;
+    --card:#ffffff; --accent:#3a5a40; --accent-soft:#eef2ec; --code:#f4f2ee;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#141311; --fg:#efece7; --muted:#a9a39a; --line:#2b2925;
+      --card:#1c1b18; --accent:#9cc4a3; --accent-soft:#20261f; --code:#201e1a; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65;font-size:18px}
+  a{color:var(--accent)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header.hero{padding:64px 0 28px}
+  .kicker{color:var(--accent);font-weight:600;letter-spacing:.02em;margin:0 0 14px}
+  h1{font-size:2.15rem;line-height:1.15;margin:.1em 0 .35em}
+  h2{font-size:1.5rem;margin:2.4em 0 .5em;scroll-margin-top:74px}
+  h3{font-size:1.13rem;margin:1.6em 0 .3em}
+  .lead{font-size:1.18rem;color:var(--fg)}
+  p{margin:.7em 0}
+  .muted{color:var(--muted)}
+  nav.toc{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0}
+  nav.toc .wrap{display:flex;gap:16px;overflow-x:auto;font-size:.86rem;white-space:nowrap}
+  nav.toc a{color:var(--muted);text-decoration:none;font-weight:500}
+  nav.toc a:hover{color:var(--accent)}
+  .note{background:var(--accent-soft);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;margin:22px 0;font-size:.98rem}
+  .note strong{color:var(--accent)}
+  .step{border-top:1px solid var(--line);padding-top:8px}
+  .step-num{display:inline-block;font-size:.8rem;font-weight:700;color:var(--accent);
+    background:var(--accent-soft);border-radius:999px;padding:2px 11px;margin-bottom:6px}
+  .prompt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    margin:16px 0;overflow:hidden}
+  .prompt .bar{display:flex;justify-content:space-between;align-items:center;
+    padding:9px 14px;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.04em}
+  .prompt pre{margin:0;padding:16px;white-space:pre-wrap;font-size:.93rem;line-height:1.55;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);color:var(--fg)}
+  .copy{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--accent);
+    font:inherit;font-size:.78rem;padding:4px 12px;border-radius:8px}
+  .copy:hover{background:var(--accent-soft)}
+  .files{display:grid;gap:12px;margin:18px 0}
+  .file{border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;background:var(--card)}
+  .file b{color:var(--accent)}
+  ul{padding-left:1.2em}
+  li{margin:.35em 0}
+  footer{border-top:1px solid var(--line);margin-top:64px;padding:34px 0 70px;color:var(--muted);font-size:.95rem}
+  footer a{color:var(--accent)}
+  .pill{display:inline-block;font-size:.78rem;color:var(--muted);border:1px solid var(--line);
+    border-radius:999px;padding:2px 10px;margin-right:6px}
+</style>
+</head>
+<body>
+
+<nav class="toc"><div class="wrap">
+  <a href="#start">Start here</a>
+  <a href="#good">1. Version of good</a>
+  <a href="#grounding">2. Grounding doc</a>
+  <a href="#blueprint">3. Blueprint</a>
+  <a href="#automation">4. Daily search</a>
+  <a href="#tailor">5. Tailor</a>
+  <a href="#prep">6. Honest read</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">A builder's playbook</p>
+  <h1>Run your job search with AI, the way a builder would.</h1>
+  <p class="lead">I'm an applied AI builder, and this is how I use AI in my own job search. You can learn from it. Most people use AI to polish a resume. You can run the whole search with it, from figuring out what you actually want to having roles that fit found for you every morning.</p>
+  <p class="muted">The idea underneath all of it: AI is always guessing at your version of good, and when it has to guess, it defaults to the average of everyone's. This system is how you make yours explicit, once, and then reverse-engineer the path to it.</p>
+</div></header>
+
+<main class="wrap">
+
+  <div class="note" id="start">
+    <strong>Two rules before you start.</strong> Use an AI account that does not train on your data, and never paste anyone's confidential or personal information into it, including anything you are under NDA to protect. You can describe the shape of your work without the protected specifics. More on that in step 3.
+  </div>
+
+  <h2>How the system fits together</h2>
+  <p>Four documents and one daily habit. You build the documents once with the AI's help, then a daily routine uses them to find roles that fit the real you. Here is the whole machine before we build each piece:</p>
+  <div class="files">
+    <div class="file"><b>Your version of good.</b> What you actually want from the next role, in your own words.</div>
+    <div class="file"><b>Your grounding document.</b> The reusable summary of who you are, your constraints, and your version of good. You paste this into every conversation.</div>
+    <div class="file"><b>Your career blueprint.</b> The full, private record of everything you have done. Your resumes are pulled from it.</div>
+    <div class="file"><b>Your search spec and a seen list.</b> The shape of role you are hunting and a running list of what you have already looked at, so a daily search can find fits and never repeat itself.</div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step" id="good">
+    <span class="step-num">Step 1</span>
+    <h2>Interview yourself for your version of good</h2>
+    <p>Do not start with job titles. Start with the shape of the work: what energizes you, what drains you, the environment you do your best work in, and the constraints that are real for you. Let the AI interview you, one question at a time, until it can describe your version of good back to you in a way that feels true.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt</span><button class="copy">Copy</button></div>
+<pre>You are a sharp, warm career coach. Help me define my "version of good" for a job search, the single most important input to finding roles that actually fit me. Most people describe what they will settle for; help me name what I actually want, and be specific.
+
+Interview me with a few focused questions at a time (2-3, do not overwhelm me), covering:
+- THE WORK: the role and the kind of work I want more of (and less of), and what I am genuinely great at.
+- THE FRAME: level / seniority, my comp floor, where and how I want to work (remote / hybrid / onsite, and how far I would commute), the industries or types of company that fit, and what I want from the culture, mission, and growth.
+- THE HONEST NOS: my real dealbreakers, the things that would make me pass on an otherwise good role.
+- HIDDEN RANGE: given my background, adjacent roles or titles I am probably qualified for but would not think to search for.
+
+Push me gently where I am vague ("a good manager" &rarr; what does that actually look like day to day?). Do not invent ambitions I do not have.
+
+When we are done, output a clean, paste-ready summary I can drop straight into my job-search tool, under these exact labels:
+- The role you want (title + what the work is)
+- About you
+- What makes a role good for you (must-haves)
+- Dealbreakers &amp; hard nos
+- Target titles &amp; skills (comma-separated)
+- Industries / types of company
+- Work arrangement (remote / hybrid / onsite)
+- Base location + commute radius
+- Level / seniority
+
+(I am starting from scratch, help me build it.)</pre>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" id="grounding">
+    <span class="step-num">Step 2</span>
+    <h2>Turn that into a grounding document</h2>
+    <p>Take the conversation from step 1 and ask the AI to turn it into a grounding document: one reusable file that collects the dots to your version of good, so future you and future AI can help with the search. You paste it into every future conversation, and every answer gets sharper because the AI finally knows who it is talking to.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt</span><button class="copy">Copy</button></div>
+<pre>You're helping me build a grounding document for my job search. I'll paste a conversation where I worked out my "version of good" for my next role. Turn it into one reusable document I can paste into future chats so you, and future AI, can help me find roles, judge fit honestly, and tailor materials in my voice.
+
+Interview me one question at a time to fill the gaps. Capture: the work I most want to be doing (the shape, not just a title); my version of good, what makes a role a yes and what makes it a no; my hard constraints (comp floor, location and travel, work authorization, the things I won't do); what I bring that's hard to hire; and my through-line, the one sentence that ties my work together. Keep asking until you stop learning something new.
+
+Then write the grounding document in plain language and in my voice, and tell me how to use it. Do not include anything I've said is confidential or under NDA; if something is protected, capture only the shape of it, never the protected specifics.</pre>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step" id="blueprint">
+    <span class="step-num">Step 3</span>
+    <h2>Build your career blueprint</h2>
+    <p>Before you write a single resume, build the blueprint of everything you have done. Do not type it out. Have the AI interview you. Here is the reframe that changes everything: your resume is not the document, it is a query. The blueprint is the source of truth it pulls from. So you want it complete, not short. You never send the blueprint. You mine it.</p>
+    <div class="note">
+      <strong>The NDA-safe move.</strong> Keep confidential work out of any AI tool. Record the shape of what you did, not the protected specifics. "I architected a multi-agent system on AWS for a large enterprise tech company" belongs in your blueprint. The client's name and their private numbers do not. Putting NDA material into an AI tool can break the NDA, so describe the skill, not the secret.
+    </div>
+    <div class="prompt">
+      <div class="bar"><span>Prompt</span><button class="copy">Copy</button></div>
+<pre>You're going to interview me to build a complete career blueprint. This is a private source-of-truth document, not a resume. Length does not matter, completeness does. I will never send this; I'll mine it to write tailored resumes and to feed my job-search automations.
+
+Interview me one question at a time, and don't move on until you've dug. For each role or project ask: what did I actually own, what was the hardest problem, what decision would only I have made, and what number proves it. Keep going until you stop surfacing new dots.
+
+By the end, capture: every role (title, org, dates, and the real scope, team, budget, headcount, locations, dollars); every project (problem, what I did, the judgment call, the outcome); a metrics library with every real number in one place; my tools and skills with a depth flag (shipped in production, used once, or conversant); my through-line, the sentence that ties it all together; off-resume gold, the stories too small or personal for the page but strong in an interview; how I sound and the words I never use, so future drafts read like me; warm relationships and past clients who could open a door; and the honest version of any hard parts (a pay cut, a gap, a nonlinear jump).
+
+Do not record anything confidential or under NDA. If something is protected, capture only the shape of it, never the client name or the private numbers. When we're done, organize it into a clean, reusable document and flag anywhere a claim needs a number I didn't give you.</pre>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step" id="automation">
+    <span class="step-num">Step 4</span>
+    <h2>Build a daily search that finds roles by fit, not title</h2>
+    <p>This is the part almost no one sets up, and it is the one that changes your search. Once your grounding document exists, you can stop scrolling job boards and let a daily routine hunt for you. Here is how a net-new person builds it from scratch.</p>
+
+    <h3>What you need</h3>
+    <p>An AI setup that can do three things: remember your files between sessions, search the web, and run on a schedule. Claude can do all three today through scheduled tasks, with Claude Code or a connected workspace for the files. The concepts port to any agent that has memory, search, and a scheduler.</p>
+
+    <h3>The two extra files you build first</h3>
+    <div class="files">
+      <div class="file"><b>A search spec.</b> Ask the AI to write it from your grounding document: the titles your target role hides behind, the responsibilities that signal a real match, your must-haves, your deal-breakers, and a simple way to score a posting from 1 to 5.</div>
+      <div class="file"><b>A seen list.</b> A running list of every company and role you have already looked at. This is what lets the daily search skip old ground and only ever show you something new.</div>
+    </div>
+    <div class="prompt">
+      <div class="bar"><span>Prompt · write your search spec</span><button class="copy">Copy</button></div>
+<pre>Using my grounding document, write a search spec I can hand to a daily search agent. Include: the shape of role I'm hunting, the titles it hides behind, the responsibilities that signal a real match, my must-haves, my hard deal-breakers (comp floor, location and travel, work authorization), and a 1-to-5 scale for scoring a posting against my fit. Keep it tight enough that another AI could apply it consistently.</pre>
+    </div>
+
+    <h3>The engine: one scheduled task</h3>
+    <p>Now you set up a task that runs every weekday morning and does the work you would do by hand, faster and without getting bored. Give it these instructions and point it at your own files.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt · the daily sweep</span><button class="copy">Copy</button></div>
+<pre>Run my daily job-search sweep every weekday morning.
+
+1. Read my grounding document and my search spec. They define who I am, the shape of role I want, my hard constraints (comp floor, location, travel, work authorization), and my deal-breakers.
+2. Read my seen list. Every company and role on it is off-limits. Never surface something I've already been shown.
+3. Search the web and job boards for roles that match the shape in my search spec. Rotate sources so you don't hit the same ones every day.
+4. For each promising role, open the real posting and verify it is live, that the location or remote policy fits my constraints, and that the pay (if listed) clears my floor. Do not trust aggregator tags; confirm on the source.
+5. Score each surviving role 1 to 5 against my search spec. Write one honest line on why it fits and one on the biggest gap or risk.
+6. Give me a short digest of the best matches, strongest first, with the exact application link for each.
+7. Add every new role you surface to my seen list with today's date, so it isn't repeated.
+
+If nothing clears the bar, tell me plainly and name what you checked. Don't pad. I'll decide what to apply to; you find and structure, I keep the judgment.</pre>
+    </div>
+
+    <h3>What you get, and how it grows</h3>
+    <p>Each morning you read a short digest of fits instead of scrolling hundreds of postings. You apply to the ones worth it. The system does not do the thinking for you: it finds and structures, you keep the judgment and the voice.</p>
+    <p>Here is the part I did not expect. The more you run it, the sharper your version of good gets, and sometimes it splits. Mine got sharp enough that it branched into two searches: one for hands-on builder and forward-deployed roles, one for enablement. Same person, two shapes of good. When that happens, you just give the second search its own spec and let both run.</p>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step" id="tailor">
+    <span class="step-num">Step 5</span>
+    <h2>Tailor without losing your voice</h2>
+    <p>When a role is worth it, point the AI at your blueprint and the specific posting and ask it to pull only the proof that matches, written in your voice. Then run the draft through a self-check, because the fastest way to get screened out is to sound like a machine.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt · tailor from the blueprint</span><button class="copy">Copy</button></div>
+<pre>Here is my career blueprint and a job posting. Draft a resume and a short cover letter for this specific role. Pull only the experience and the numbers from my blueprint that actually match what they're asking for. Write in my voice, keep every claim honest and backed by something real, and lead with my through-line. Then tell me which of my stories you left out and why.</pre>
+    </div>
+    <div class="prompt">
+      <div class="bar"><span>Prompt · scrub the AI tells</span><button class="copy">Copy</button></div>
+<pre>Review this draft and flag anything that sounds like AI instead of me: em dashes, buzzwords (seamlessly, robust, leverage, elevate, unlock, cutting-edge, best-in-class), the "not just X, but Y" construction, and any claim I can't back up with a real number or example. Rewrite the flagged parts in plain, direct language.</pre>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step" id="prep">
+    <span class="step-num">Step 6</span>
+    <h2>Get an honest read, then prep</h2>
+    <p>Before you apply or interview, ask the AI for the real fit, gaps and all, not a pep talk. Then have it prep you: the stories worth telling, the questions worth asking, and the compensation conversation, so you do not under-anchor.</p>
+    <div class="prompt">
+      <div class="bar"><span>Prompt</span><button class="copy">Copy</button></div>
+<pre>Based on my grounding document and this job posting, give me the honest read on my fit: where I'm strong, where the real gaps are, and how I'd bridge each gap truthfully. Then help me prep: the three stories most worth telling for this role, the smart questions to ask them, and how to handle the compensation conversation without under-anchoring.</pre>
+    </div>
+    <p class="muted">That is the whole system. Define your version of good, ground it, blueprint your career, let a daily search find the fits, tailor honestly, and go in prepared. Build it once, and it works for you every morning.</p>
+  </div>
+
+</main>
+
+<footer><div class="wrap">
+  <p><span class="pill">Built in public</span><span class="pill">Adapt it freely</span></p>
+  <p>Made by Jenny Cotie Kangas, an applied AI builder. If this helps you, pass it to someone who is searching. Teach one person to fish today.</p>
+  <p><a href="https://linkedin.com/in/jcotie">LinkedIn</a> &nbsp;·&nbsp; <a href="https://whiterockroad.org">whiterockroad.org</a> &nbsp;·&nbsp; <a href="https://github.com/jennycotiekangas">GitHub</a></p>
+</div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre = btn.closest('.prompt').querySelector('pre');
+    navigator.clipboard.writeText(pre.innerText).then(function(){
+      var old = btn.textContent; btn.textContent = 'Copied';
+      setTimeout(function(){ btn.textContent = old; }, 1400);
+    });
+  });
+});
+</script>
+</body>
+</html>
