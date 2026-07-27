@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Use AI to Run Your Job Search: a builder's playbook</title>
 <meta name="description" content="A step-by-step system for running your job search with AI: define your version of good, build a grounding document and a career blueprint, and set up a daily search that finds roles by fit, not title.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Use AI to Run Your Job Search: a builder's playbook">
+<meta property="og:description" content="Most people use AI to polish a resume. You can run the whole search with it: define your version of good, ground it, and have roles that fit found for you every morning.">
+<meta property="og:url" content="https://jennycotiekangas.github.io/ai-job-search/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Use AI to Run Your Job Search: a builder's playbook">
+<meta name="twitter:description" content="A builder's playbook for running your whole job search with AI, not just polishing a resume.">
 <style>
   :root{
     --bg:#faf9f7; --fg:#1c1b19; --muted:#5f5b54; --line:#e5e1da;
@@ -36,9 +43,9 @@
   nav.toc a{color:var(--muted);text-decoration:none;font-weight:500}
   nav.toc a:hover{color:var(--accent)}
   .note{background:var(--accent-soft);border:1px solid var(--line);border-radius:var(--radius);
-    padding:16px 18px;margin:22px 0;font-size:.98rem}
+    padding:16px 18px;margin:22px 0;font-size:.98rem;scroll-margin-top:74px}
   .note strong{color:var(--accent)}
-  .step{border-top:1px solid var(--line);padding-top:8px}
+  .step{border-top:1px solid var(--line);padding-top:8px;scroll-margin-top:74px}
   .step-num{display:inline-block;font-size:.8rem;font-weight:700;color:var(--accent);
     background:var(--accent-soft);border-radius:999px;padding:2px 11px;margin-bottom:6px}
   .prompt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -77,7 +84,7 @@
 <header class="hero"><div class="wrap">
   <p class="kicker">A builder's playbook</p>
   <h1>Run your job search with AI, the way a builder would.</h1>
-  <p class="lead">I'm an applied AI builder, and this is how I use AI in my own job search. You can learn from it. Most people use AI to polish a resume. You can run the whole search with it, from figuring out what you actually want to having roles that fit found for you every morning.</p>
+  <p class="lead">I'm an applied AI builder, and this is how I use AI in my own job search. You can learn from it. Most people use AI to polish a resume. You can run the whole search with it, from figuring out what you actually want, to having roles that fit show up every morning.</p>
   <p class="muted">The idea underneath all of it: AI is always guessing at your version of good, and when it has to guess, it defaults to the average of everyone's. This system is how you make yours explicit, once, and then reverse-engineer the path to it.</p>
 </div></header>
 
@@ -174,12 +181,12 @@ Do not record anything confidential or under NDA. If something is protected, cap
 
     <h3>The two extra files you build first</h3>
     <div class="files">
-      <div class="file"><b>A search spec.</b> Ask the AI to write it from your grounding document: the titles your target role hides behind, the responsibilities that signal a real match, your must-haves, your deal-breakers, and a simple way to score a posting from 1 to 5.</div>
+      <div class="file"><b>A search spec.</b> Ask the AI to write it from your grounding document: the titles your target role hides behind, the responsibilities that signal a real match, your must-haves, your dealbreakers, and a simple way to score a posting from 1 to 5.</div>
       <div class="file"><b>A seen list.</b> A running list of every company and role you have already looked at. This is what lets the daily search skip old ground and only ever show you something new.</div>
     </div>
     <div class="prompt">
       <div class="bar"><span>Prompt · write your search spec</span><button class="copy">Copy</button></div>
-<pre>Using my grounding document, write a search spec I can hand to a daily search agent. Include: the shape of role I'm hunting, the titles it hides behind, the responsibilities that signal a real match, my must-haves, my hard deal-breakers (comp floor, location and travel, work authorization), and a 1-to-5 scale for scoring a posting against my fit. Keep it tight enough that another AI could apply it consistently.</pre>
+<pre>Using my grounding document, write a search spec I can hand to a daily search agent. Include: the shape of role I'm hunting, the titles it hides behind, the responsibilities that signal a real match, my must-haves, my hard dealbreakers (comp floor, location and travel, work authorization), and a 1 to 5 scale for scoring a posting against my fit. Keep it tight enough that another AI could apply it consistently.</pre>
     </div>
 
     <h3>The engine: one scheduled task</h3>
@@ -188,7 +195,7 @@ Do not record anything confidential or under NDA. If something is protected, cap
       <div class="bar"><span>Prompt · the daily sweep</span><button class="copy">Copy</button></div>
 <pre>Run my daily job-search sweep every weekday morning.
 
-1. Read my grounding document and my search spec. They define who I am, the shape of role I want, my hard constraints (comp floor, location, travel, work authorization), and my deal-breakers.
+1. Read my grounding document and my search spec. They define who I am, the shape of role I want, my hard constraints (comp floor, location, travel, work authorization), and my dealbreakers.
 2. Read my seen list. Every company and role on it is off-limits. Never surface something I've already been shown.
 3. Search the web and job boards for roles that match the shape in my search spec. Rotate sources so you don't hit the same ones every day.
 4. For each promising role, open the real posting and verify it is live, that the location or remote policy fits my constraints, and that the pay (if listed) clears my floor. Do not trust aggregator tags; confirm on the source.
@@ -236,6 +243,7 @@ If nothing clears the bar, tell me plainly and name what you checked. Don't pad.
 <footer><div class="wrap">
   <p><span class="pill">Built in public</span><span class="pill">Adapt it freely</span></p>
   <p>Made by Jenny Cotie Kangas, an applied AI builder. If this helps you, pass it to someone who is searching. Teach one person to fish today.</p>
+  <p class="muted">More of my work: <a href="https://jennycotiekangas.github.io">portfolio</a> &nbsp;·&nbsp; <a href="https://github.com/jennycotiekangas/reqcheck">reqcheck</a>, an audit engine for public job postings.</p>
   <p><a href="https://linkedin.com/in/jcotie">LinkedIn</a> &nbsp;·&nbsp; <a href="https://whiterockroad.org">whiterockroad.org</a> &nbsp;·&nbsp; <a href="https://github.com/jennycotiekangas">GitHub</a></p>
 </div></footer>
 
