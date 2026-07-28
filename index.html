@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#FCFBF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
 <title>Use AI to Run Your Job Search: a builder's playbook</title>
 <meta name="description" content="A step-by-step system for running your job search with AI: define your version of good, build a grounding document and a career blueprint, and set up a daily search that finds roles by fit, not title.">
 <meta property="og:type" content="website">
@@ -32,7 +35,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--fg);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     line-height:1.65;font-size:18px}
   a{color:var(--accent-text)}
   .wrap{max-width:760px;margin:0 auto;padding:0 22px}
@@ -63,7 +66,7 @@
     padding:9px 14px;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted);
     text-transform:uppercase;letter-spacing:.04em}
   .prompt pre{margin:0;padding:16px;white-space:pre-wrap;font-size:.93rem;line-height:1.55;
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);color:var(--fg)}
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);color:var(--fg)}
   .copy{cursor:pointer;border:1px solid var(--accent);background:transparent;color:var(--accent-text);
     font:inherit;font-size:.78rem;padding:4px 12px;border-radius:8px}
   .copy:hover{background:var(--accent-soft)}
@@ -89,6 +92,9 @@
   .maptable{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
   .maptable th,.maptable td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
   .maptable th{color:var(--fg);font-weight:600}
+  h1,h2,h3{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.01em}
+  .kicker,nav.toc a,.step-num,.prompt .bar,.sample .bar,.pill{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  em{font-family:"Newsreader",Georgia,serif;font-style:italic;color:var(--accent-text)}
 </style>
 </head>
 <body>
@@ -110,7 +116,7 @@
 <header class="hero"><div class="wrap">
   <p class="kicker">A builder's playbook</p>
   <h1>Run your job search with AI, the way a builder would.</h1>
-  <p class="lead">I'm an applied AI builder, and this is how I use AI in my own job search. You can learn from it. Most people use AI to polish a resume. You can run the whole search with it, from figuring out what you actually want, to having roles that fit show up every morning.</p>
+  <p class="lead">I'm an applied AI builder and coach, and this page is one of my builds: a working AI system, plus the teaching to run it yourself, pointed at a problem almost everyone faces, finding your next right thing. Here is how I use AI in my own job search, and you can learn from it. Most people use AI to polish a resume. You can run the whole search with it, from figuring out what you actually want, to having roles that fit show up every morning.</p>
   <p class="muted">The idea underneath all of it: AI is always guessing at your version of good, and when it has to guess, it defaults to the average of everyone's. This system is how you make yours explicit, once, and then reverse-engineer the path to it.</p>
 </div></header>
 
@@ -136,6 +142,7 @@ As each file is finished, give it to me as clean, paste-ready text I can save, u
 
   <h2>How the system fits together</h2>
   <p>Four documents and one daily habit. You build the documents once with the AI's help, then a daily routine uses them to find roles that fit the real you. Here is the whole machine before we build each piece:</p>
+  <p>If you know design, you will recognize the shape: this is the <em>double diamond</em>, applied to a job search. One diamond to discover and define your version of good (steps 1 to 3), a second to develop and deliver the roles and applications that fit it (steps 4 to 6), and a habit that keeps it sharp (step 7).</p>
   <div class="files">
     <div class="file"><b>Your grounding document.</b> The reusable summary of who you are, your constraints, and your version of good. It opens with a short labeled header a search agent can read, then the full version in your voice. You paste this into every conversation.</div>
     <div class="file"><b>Your career blueprint.</b> The full, private record of everything you have done. Your resumes are pulled from it.</div>
