@@ -3,34 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#FCFBF8">
 <title>Use AI to Run Your Job Search: a builder's playbook</title>
 <meta name="description" content="A step-by-step system for running your job search with AI: define your version of good, build a grounding document and a career blueprint, and set up a daily search that finds roles by fit, not title.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Use AI to Run Your Job Search: a builder's playbook">
 <meta property="og:description" content="Most people use AI to polish a resume. You can run the whole search with it: define your version of good, ground it, and have roles that fit found for you every morning.">
 <meta property="og:url" content="https://jennycotiekangas.github.io/ai-job-search/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://jennycotiekangas.github.io/ai-job-search/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Use AI to Run Your Job Search: a builder's playbook">
 <meta name="twitter:description" content="A builder's playbook for running your whole job search with AI, not just polishing a resume.">
+<meta name="twitter:image" content="https://jennycotiekangas.github.io/ai-job-search/og-cover.png">
 <style>
   :root{
-    --bg:#faf9f7; --fg:#1c1b19; --muted:#5f5b54; --line:#e5e1da;
-    --card:#ffffff; --accent:#3a5a40; --accent-soft:#eef2ec; --code:#f4f2ee;
+    /* Whiterock Road · Limestone & Clay */
+    --bg:#FCFBF8; --fg:#2A1E14; --muted:#574B39; --faint:#6E6149; --line:#E7DFD2;
+    --card:#FFFFFF; --accent:#B5512F; --accent-text:#984124; --accent-soft:#F6E7DE; --code:#F3EEE6;
     --radius:14px;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#141311; --fg:#efece7; --muted:#a9a39a; --line:#2b2925;
-      --card:#1c1b18; --accent:#9cc4a3; --accent-soft:#20261f; --code:#201e1a; }
+    :root{ --bg:#1B140E; --fg:#F3EEE6; --muted:#B4A78F; --faint:#B4A78F; --line:#3A2E23;
+      --card:#241B13; --accent:#D98E6E; --accent-text:#E0A183; --accent-soft:#2E2117; --code:#221A12; }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--fg);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     line-height:1.65;font-size:18px}
-  a{color:var(--accent)}
+  a{color:var(--accent-text)}
   .wrap{max-width:760px;margin:0 auto;padding:0 22px}
   header.hero{padding:64px 0 28px}
-  .kicker{color:var(--accent);font-weight:600;letter-spacing:.02em;margin:0 0 14px}
+  .kicker{color:var(--accent-text);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;margin:0 0 16px}
   h1{font-size:2.15rem;line-height:1.15;margin:.1em 0 .35em}
   h2{font-size:1.5rem;margin:2.4em 0 .5em;scroll-margin-top:74px}
   h3{font-size:1.13rem;margin:1.6em 0 .3em}
@@ -41,13 +48,14 @@
     backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0}
   nav.toc .wrap{display:flex;gap:16px;overflow-x:auto;font-size:.86rem;white-space:nowrap}
   nav.toc a{color:var(--muted);text-decoration:none;font-weight:500}
-  nav.toc a:hover{color:var(--accent)}
-  .note{background:var(--accent-soft);border:1px solid var(--line);border-radius:var(--radius);
+  nav.toc a:hover{color:var(--accent-text)}
+  nav.toc a.active{color:var(--accent-text);font-weight:600}
+  .note{background:var(--code);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--radius);
     padding:16px 18px;margin:22px 0;font-size:.98rem;scroll-margin-top:74px}
-  .note strong{color:var(--accent)}
+  .note strong{color:var(--fg)}
   .step{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;scroll-margin-top:74px}
-  .step-num{display:inline-block;font-size:.9rem;font-weight:700;color:var(--accent);
-    background:var(--accent-soft);border-radius:999px;padding:4px 14px;margin-bottom:8px;letter-spacing:.02em}
+  .step-num{display:inline-block;font-size:.9rem;font-weight:700;color:var(--muted);
+    background:var(--code);border-radius:999px;padding:4px 14px;margin-bottom:8px;letter-spacing:.02em}
   .step-num + h2{margin-top:.1em}
   .prompt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     margin:16px 0;overflow:hidden}
@@ -56,16 +64,16 @@
     text-transform:uppercase;letter-spacing:.04em}
   .prompt pre{margin:0;padding:16px;white-space:pre-wrap;font-size:.93rem;line-height:1.55;
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);color:var(--fg)}
-  .copy{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--accent);
+  .copy{cursor:pointer;border:1px solid var(--accent);background:transparent;color:var(--accent-text);
     font:inherit;font-size:.78rem;padding:4px 12px;border-radius:8px}
   .copy:hover{background:var(--accent-soft)}
   .files{display:grid;gap:12px;margin:18px 0}
   .file{border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;background:var(--card)}
-  .file b{color:var(--accent)}
+  .file b{color:var(--fg)}
   ul{padding-left:1.2em}
   li{margin:.35em 0}
   footer{border-top:1px solid var(--line);margin-top:64px;padding:34px 0 70px;color:var(--muted);font-size:.95rem}
-  footer a{color:var(--accent)}
+  footer a{color:var(--accent-text)}
   .pill{display:inline-block;font-size:.78rem;color:var(--muted);border:1px solid var(--line);
     border-radius:999px;padding:2px 10px;margin-right:6px}
   .sample{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin:16px 0;overflow:hidden}
@@ -80,7 +88,7 @@
   .sample .foot{color:var(--muted);font-size:.9rem;margin-top:14px}
   .maptable{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
   .maptable th,.maptable td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-  .maptable th{color:var(--accent);font-weight:600}
+  .maptable th{color:var(--fg);font-weight:600}
 </style>
 </head>
 <body>
@@ -369,6 +377,36 @@ document.querySelectorAll('.copy').forEach(function(btn){
     });
   });
 });
+
+(function(){
+  var navWrap = document.querySelector('nav.toc .wrap');
+  if(!navWrap) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var secs = links.map(function(a){
+    return { a:a, el: document.getElementById(a.getAttribute('href').slice(1)) };
+  }).filter(function(s){ return s.el; });
+  if(!secs.length) return;
+  var current = null, ticking = false;
+  function topOf(el){ return el.getBoundingClientRect().top + window.scrollY; }
+  function update(){
+    ticking = false;
+    var y = window.scrollY + 90;
+    var cur = secs[0];
+    for(var i=0;i<secs.length;i++){ if(topOf(secs[i].el) <= y) cur = secs[i]; }
+    if(cur === current) return;
+    current = cur;
+    links.forEach(function(a){ a.classList.remove('active'); });
+    cur.a.classList.add('active');
+    var navRect = navWrap.getBoundingClientRect();
+    var aRect = cur.a.getBoundingClientRect();
+    var delta = (aRect.left - navRect.left) - navWrap.clientWidth/2 + aRect.width/2;
+    navWrap.scrollTo({ left: navWrap.scrollLeft + delta, behavior:'smooth' });
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
 </script>
 </body>
 </html>
